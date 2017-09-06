@@ -1,0 +1,8 @@
+{
+  "name": "dreamhouse-ionic3",
+  "app_id": "",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

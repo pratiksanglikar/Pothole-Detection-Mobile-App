@@ -1,0 +1,50 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>About</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <div class="about-header">
+        <img src="assets/img/dreamhouse-logo.svg">
+    </div>
+
+    <div padding class="about-info">
+
+        <h4>Pothole Detection Application</h4>
+
+        <div>
+        <div>
+            <h3>
+                GPS data
+            </h3>
+            <div>Latitude: {{latitude}}</div>
+            <div>Longitude: {{longitude}}</div>
+            <div>Heading: {{heading}}</div>
+            <div>Speed: {{speed}}</div>
+        </div>
+
+        <div>
+            <h3>
+                Device Motion Data
+            </h3>
+            <div>timestamp: {{acceleration.timestamp}}</div>
+            <div>x: {{acceleration.x}}</div>
+            <div>y: {{acceleration.y}}</div>
+            <div>z: {{acceleration.z}}</div>
+        </div>
+
+        <div>
+            <h3>
+                Device Orientation
+            </h3>
+            <div>Device Orientation: {{deviceOrientationData}}</div>
+        </div>
+        </div>
+
+    </div>
+</ion-content>

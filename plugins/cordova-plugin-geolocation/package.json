@@ -1,19 +1,19 @@
 {
-  "_from": "cordova-plugin-geolocation",
+  "_from": "cordova-plugin-geolocation@^2.4.3",
   "_id": "cordova-plugin-geolocation@2.4.3",
   "_inBundle": false,
   "_integrity": "sha1-HdAAI9Hxos4zD4dn7Qj3tzj+cYQ=",
   "_location": "/cordova-plugin-geolocation",
   "_phantomChildren": {},
   "_requested": {
-    "type": "tag",
+    "type": "range",
     "registry": true,
-    "raw": "cordova-plugin-geolocation",
+    "raw": "cordova-plugin-geolocation@^2.4.3",
     "name": "cordova-plugin-geolocation",
     "escapedName": "cordova-plugin-geolocation",
-    "rawSpec": "",
+    "rawSpec": "^2.4.3",
     "saveSpec": null,
-    "fetchSpec": "latest"
+    "fetchSpec": "^2.4.3"
   },
   "_requiredBy": [
     "#USER",
@@ -21,7 +21,7 @@
   ],
   "_resolved": "https://registry.npmjs.org/cordova-plugin-geolocation/-/cordova-plugin-geolocation-2.4.3.tgz",
   "_shasum": "1dd00023d1f1a2ce330f8767ed08f7b738fe7184",
-  "_spec": "cordova-plugin-geolocation",
+  "_spec": "cordova-plugin-geolocation@^2.4.3",
   "_where": "/Users/pratiksanglikar/Documents/295/Pothole-Detection-Mobile-App/node_modules",
   "author": {
     "name": "Apache Software Foundation"

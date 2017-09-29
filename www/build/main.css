@@ -24402,33 +24402,39 @@ ion-footer {
   padding: 8px 16px !important;
 }
 
-page-welcome {
-  font-weight: 300;
+page-welcome .start-button,
+page-welcome .end-button {
+  color: #ebebeb;
+  height: 10em;
+  width: 10em;
+  border: solid 2px #ebebeb;
+  border-radius: 5em;
+  font-face: "Arial Black";
+  font-weight: bold;
+  font-size: 1em;
+  margin: 2em;
 }
 
-page-welcome ion-slide {
-  position: relative;
-  background-size: cover;
+page-welcome .start-button {
+  background-color: #2E8B57;
 }
 
-page-welcome ion-slide p {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(132, 191, 65, 0.8);
-  color: #FFFFFF;
-  padding: 28px 28px 48px 28px;
-  font-size: 2.7rem;
-  margin-bottom: 0;
+page-welcome .end-button {
+  background-color: #FF6347;
 }
 
-page-welcome ion-slide img {
-  width: 50px;
-  height: 50px;
-  margin-top: -150px;
+page-welcome .start-button-div,
+page-welcome .end-button-div {
+  text-align: center;
+  background-color: #98FB98;
 }
 
-page-welcome .swiper-pagination-bullet {
-  background: white;
+page-welcome .main-div {
+  height: 100%;
+  width: 100%;
+  background-color: #98FB98;
+}
+
+page-welcome .show-data-view {
+  background-color: #98FB98;
 }

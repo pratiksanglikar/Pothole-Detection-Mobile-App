@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="cordova-plugin-hypertrack" version="0.1.0">
+  <name>HyperTrack</name>
+  <js-module name="HyperTrack" src="www/HyperTrack.js">
+    <clobbers target="cordova.plugins.HyperTrack" />
+  </js-module>
+
+  <!-- Android configuration -->
+  <platform name="android">
+    <config-file parent="/*" target="res/xml/config.xml">
+      <feature name="HyperTrack">
+        <param name="android-package" value="io.hypertrack.cordova.HyperTrackWrapper" />
+      </feature>
+    </config-file>
+
+    <config-file parent="/*" target="AndroidManifest.xml">
+      <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+      <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+      <uses-permission android:name="android.permission.INTERNET" />
+      <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION" />
+      <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+      <!-- Permissions required by Paho MQTT Client-->
+      <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    </config-file>
+
+    <source-file src="src/android/HyperTrackWrapper.java" target-dir="src/io/hypertrack/cordova/HyperTrackWrapper" />
+
+    <!-- <framework src="com.google.android.gms:play-services-gcm:+" /> -->
+    <!-- Warning: Using compile in custom gradle file for play services. Might have merge conflicts -->
+
+    <framework custom="true" src="src/android/hypertrack-sdk.gradle" type="gradleReference" />
+  </platform>
+
+  <!-- iOS configuration -->
+
+  <platform name="ios">
+    <config-file parent="/*" target="config.xml">
+      <feature name="HyperTrack">
+        <param name="ios-package" value="HyperTrackWrapper" />
+      </feature>
+    </config-file>
+    <source-file src="src/ios/HyperTrackWrapper.swift" />
+    <header-file src="src/ios/HyperTrack-Bridging-Header.h" />
+
+    <!-- <framework src="HyperTrack" type="podspec" spec="~> 0.3.3" /> -->
+    <framework src="libsqlite3.dylib" />
+
+  </platform>
+
+</plugin>

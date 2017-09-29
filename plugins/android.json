@@ -7,37 +7,58 @@
         "files": {}
     },
     "installed_plugins": {
-        "cordova-plugin-device-motion": {
-            "PACKAGE_NAME": "org.coenraets.dreamhouse"
-        },
-        "cordova-plugin-device-orientation": {
-            "PACKAGE_NAME": "org.coenraets.dreamhouse"
-        },
-        "cordova-plugin-geolocation": {
-            "PACKAGE_NAME": "org.coenraets.dreamhouse"
+        "cordova-plugin-add-swift-support": {
+            "PACKAGE_NAME": "edu.pratiksanglikar.potholedetection"
         },
         "cordova-plugin-console": {
-            "PACKAGE_NAME": "org.coenraets.dreamhouse"
+            "PACKAGE_NAME": "edu.pratiksanglikar.potholedetection"
         },
         "cordova-plugin-device": {
-            "PACKAGE_NAME": "org.coenraets.dreamhouse"
+            "PACKAGE_NAME": "edu.pratiksanglikar.potholedetection"
+        },
+        "cordova-plugin-device-motion": {
+            "PACKAGE_NAME": "edu.pratiksanglikar.potholedetection"
+        },
+        "cordova-plugin-device-orientation": {
+            "PACKAGE_NAME": "edu.pratiksanglikar.potholedetection"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "edu.pratiksanglikar.potholedetection"
+        },
+        "cordova-plugin-hypertrack": {
+            "PACKAGE_NAME": "edu.pratiksanglikar.potholedetection"
+        },
+        "cordova-plugin-mauron85-background-geolocation": {
+            "ACCOUNT_TYPE": "$PACKAGE_NAME.account",
+            "CONTENT_AUTHORITY": "$PACKAGE_NAME",
+            "PACKAGE_NAME": "edu.pratiksanglikar.potholedetection"
+        },
+        "cordova-plugin-media": {
+            "PACKAGE_NAME": "edu.pratiksanglikar.potholedetection"
+        },
+        "cordova-plugin-nativeaudio": {
+            "PACKAGE_NAME": "edu.pratiksanglikar.potholedetection"
         },
         "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "org.coenraets.dreamhouse"
+            "PACKAGE_NAME": "edu.pratiksanglikar.potholedetection"
         },
         "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "org.coenraets.dreamhouse"
+            "PACKAGE_NAME": "edu.pratiksanglikar.potholedetection"
         },
         "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "org.coenraets.dreamhouse"
+            "PACKAGE_NAME": "edu.pratiksanglikar.potholedetection"
         },
         "ionic-plugin-keyboard": {
-            "PACKAGE_NAME": "org.coenraets.dreamhouse"
+            "PACKAGE_NAME": "edu.pratiksanglikar.potholedetection"
+        },
+        "cordova-android-play-services-gradle-release": {
+            "PLAY_SERVICES_VERSION": "11.+",
+            "PACKAGE_NAME": "edu.pratiksanglikar.potholedetection"
         }
     },
     "dependent_plugins": {
-        "cordova-plugin-compat": {
-            "PACKAGE_NAME": "org.coenraets.dreamhouse"
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "edu.pratiksanglikar.potholedetection"
         }
     }
 }

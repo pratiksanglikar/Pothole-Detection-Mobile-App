@@ -1,0 +1,52 @@
+{
+  "_from": "cordova-plugin-hypertrack@^1.3.3",
+  "_id": "cordova-plugin-hypertrack@1.3.3",
+  "_inBundle": false,
+  "_integrity": "sha1-mQGCLJ0+WFjC5dyyYY29IaofH60=",
+  "_location": "/cordova-plugin-hypertrack",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "cordova-plugin-hypertrack@^1.3.3",
+    "name": "cordova-plugin-hypertrack",
+    "escapedName": "cordova-plugin-hypertrack",
+    "rawSpec": "^1.3.3",
+    "saveSpec": null,
+    "fetchSpec": "^1.3.3"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-hypertrack/-/cordova-plugin-hypertrack-1.3.3.tgz",
+  "_shasum": "9901822c9d3e5858c2e5dcb2618dbd21aa1f1fad",
+  "_spec": "cordova-plugin-hypertrack@^1.3.3",
+  "_where": "/Users/pratiksanglikar/Documents/295/Pothole-Detection-Mobile-App/node_modules",
+  "author": {
+    "name": "HyperTrack"
+  },
+  "bugs": {
+    "url": "https://github.com/hypertrack/hypertrack-cordova/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Cordova plugin for HyperTrack SDKs",
+  "devDependencies": {},
+  "homepage": "https://github.com/hypertrack/hypertrack-cordova#readme",
+  "keywords": [
+    "cordova",
+    "hypertrack",
+    "location",
+    "tracking"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "cordova-plugin-hypertrack",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hypertrack/hypertrack-cordova.git"
+  },
+  "scripts": {},
+  "version": "1.3.3"
+}

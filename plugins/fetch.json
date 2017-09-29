@@ -1,8 +1,24 @@
 {
-    "cordova-plugin-geolocation": {
+    "cordova-plugin-add-swift-support": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-geolocation"
+            "id": "cordova-plugin-add-swift-support@^1.7.0"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-console": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-console@^1.0.5"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-device": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-device@^1.1.4"
         },
         "is_top_level": true,
         "variables": {}
@@ -18,7 +34,15 @@
     "cordova-plugin-device-orientation": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-device-orientation"
+            "id": "cordova-plugin-device-orientation@^1.0.7"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-geolocation": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-geolocation@^2.4.3"
         },
         "is_top_level": true,
         "variables": {}
@@ -31,18 +55,48 @@
         "is_top_level": false,
         "variables": {}
     },
-    "cordova-plugin-console": {
+    "cordova-plugin-hypertrack": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-console@1.0.5"
+            "id": "cordova-plugin-hypertrack@^1.3.3"
         },
         "is_top_level": true,
         "variables": {}
     },
-    "cordova-plugin-device": {
+    "cordova-plugin-mauron85-background-geolocation": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-device@1.1.4"
+            "id": "cordova-plugin-mauron85-background-geolocation@^2.2.5"
+        },
+        "is_top_level": true,
+        "variables": {
+            "ACCOUNT_TYPE": "$PACKAGE_NAME.account",
+            "CONTENT_AUTHORITY": "$PACKAGE_NAME",
+            "ALWAYS_USAGE_DESCRIPTION": "This app requires background location tracking"
+        }
+    },
+    "cordova-plugin-media": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-media@^3.0.1"
+        },
+        "is_top_level": true,
+        "variables": {
+            "MICROPHONE_USAGE_DESCRIPTION": " "
+        }
+    },
+    "cordova-plugin-file": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-file@^4.0.0"
+        },
+        "is_top_level": false,
+        "variables": {}
+    },
+    "cordova-plugin-nativeaudio": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-nativeaudio@^3.0.9"
         },
         "is_top_level": true,
         "variables": {}
@@ -50,7 +104,7 @@
     "cordova-plugin-splashscreen": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-splashscreen@~4.0.1"
+            "id": "cordova-plugin-splashscreen@^4.0.3"
         },
         "is_top_level": true,
         "variables": {}
@@ -58,7 +112,7 @@
     "cordova-plugin-statusbar": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-statusbar@2.2.1"
+            "id": "cordova-plugin-statusbar@^2.2.1"
         },
         "is_top_level": true,
         "variables": {}
@@ -66,7 +120,7 @@
     "cordova-plugin-whitelist": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-whitelist@1.3.1"
+            "id": "cordova-plugin-whitelist@^1.3.1"
         },
         "is_top_level": true,
         "variables": {}
@@ -74,7 +128,15 @@
     "ionic-plugin-keyboard": {
         "source": {
             "type": "registry",
-            "id": "ionic-plugin-keyboard@~2.2.1"
+            "id": "ionic-plugin-keyboard@^2.2.1"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-android-play-services-gradle-release": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-android-play-services-gradle-release"
         },
         "is_top_level": true,
         "variables": {}

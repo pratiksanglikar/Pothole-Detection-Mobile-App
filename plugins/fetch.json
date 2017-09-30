@@ -55,14 +55,6 @@
         "is_top_level": false,
         "variables": {}
     },
-    "cordova-plugin-hypertrack": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-hypertrack@^1.3.3"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
     "cordova-plugin-mauron85-background-geolocation": {
         "source": {
             "type": "registry",

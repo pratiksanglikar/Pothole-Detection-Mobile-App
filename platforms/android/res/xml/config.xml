@@ -12,9 +12,6 @@
     <feature name="Geolocation">
         <param name="android-package" value="org.apache.cordova.geolocation.Geolocation" />
     </feature>
-    <feature name="HyperTrack">
-        <param name="android-package" value="io.hypertrack.cordova.HyperTrackWrapper" />
-    </feature>
     <feature name="BackgroundGeolocation">
         <param name="android-package" value="com.tenforwardconsulting.cordova.BackgroundGeolocationPlugin" />
     </feature>

@@ -92,7 +92,6 @@
     <plugin name="cordova-plugin-device-motion" spec="^1.2.5" />
     <plugin name="cordova-plugin-device-orientation" spec="^1.0.7" />
     <plugin name="cordova-plugin-geolocation" spec="^2.4.3" />
-    <plugin name="cordova-plugin-hypertrack" spec="^1.3.3" />
     <plugin name="cordova-plugin-mauron85-background-geolocation" spec="^2.2.5">
         <variable name="ACCOUNT_TYPE" value="$PACKAGE_NAME.account" />
         <variable name="CONTENT_AUTHORITY" value="$PACKAGE_NAME" />

@@ -92,7 +92,6 @@ ext {
 }
 
 // PLUGIN GRADLE EXTENSIONS START
-apply from: "cordova-plugin-hypertrack/potholedetection-hypertrack-sdk.gradle"
 apply from: "cordova-plugin-mauron85-background-geolocation/potholedetection-logtofile.gradle"
 apply from: "cordova-android-play-services-gradle-release/potholedetection-cordova-android-play-services-gradle-release.gradle"
 // PLUGIN GRADLE EXTENSIONS END

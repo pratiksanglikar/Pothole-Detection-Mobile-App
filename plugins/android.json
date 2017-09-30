@@ -25,9 +25,6 @@
         "cordova-plugin-geolocation": {
             "PACKAGE_NAME": "edu.pratiksanglikar.potholedetection"
         },
-        "cordova-plugin-hypertrack": {
-            "PACKAGE_NAME": "edu.pratiksanglikar.potholedetection"
-        },
         "cordova-plugin-mauron85-background-geolocation": {
             "ACCOUNT_TYPE": "$PACKAGE_NAME.account",
             "CONTENT_AUTHORITY": "$PACKAGE_NAME",

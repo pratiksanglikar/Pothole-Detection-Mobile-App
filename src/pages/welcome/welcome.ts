@@ -21,6 +21,7 @@ export class WelcomePage {
     private heading: any = '';
     private speed: any = '';
     private acceleration: any = {};
+    private initialAcceleration = null;
     private deviceOrientationData: any = {};
     private watching: boolean = false;
 
@@ -48,17 +49,6 @@ export class WelcomePage {
                 private media: Media) {
 
         this.platform.ready().then(() => {
-            // this.nativeAudio.preloadSimple('pothole-detected', 'assets/sound/Ohhh.mp3').then(function() {
-            //     console.log("Audio loaded successfully!");
-            //     nativeAudio.play('pothole-detected').then(function() {
-            //         console.log("Audio played successfully!");
-            //         //alert("Audio played successfully!");
-            //     }, function(error) {
-            //         alert("Unable to play the sound! " + error);
-            //     });
-            // }, function (error) {
-            //     alert("Unable to load the audio file!" + error);
-            // });
             this.file = this.media.create('assets/sound/Ohhh.mp3');
             this.file.play();
         });
@@ -75,7 +65,7 @@ export class WelcomePage {
 
         this.backgroundGeolocation.configure(config).subscribe((location) => {
 
-            console.log('BackgroundGeolocation:  ' + location.latitude + ',' + location.longitude);
+            console.log('Background Geo-location:  ' + location.latitude + ',' + location.longitude);
 
             // Run update inside of Angular's zone
             this.zone.run(() => {
@@ -84,9 +74,7 @@ export class WelcomePage {
             });
 
         }, (err) => {
-
             console.log(err);
-
         });
 
         // Turn ON the background-geolocation system.
@@ -117,6 +105,9 @@ export class WelcomePage {
     initializeDeviceMotion() {
         this.deviceMotion.getCurrentAcceleration().then(
             (acceleration: DeviceMotionAccelerationData) => {
+                if(!this.initialAcceleration) {
+                    this.initialAcceleration = this.calculateMagnitude(this.acceleration);
+                }
                 this.acceleration = acceleration;
             },
             (error: any) => console.log(error)
@@ -124,7 +115,8 @@ export class WelcomePage {
 
         this.motionWatcher = this.deviceMotion.watchAcceleration({frequency: 20}).subscribe((acceleration: DeviceMotionAccelerationData) => {
             this.acceleration = acceleration;
-            if(this.acceleration.z > 11 && this.acceleration.z < 7) {
+            let currentAccl = this.calculateMagnitude(this.acceleration);
+            if(Math.abs(currentAccl - this.initialAcceleration) > 3) {
             this.deviceData.push({
                 "GPS": [this.longitude, this.latitude],
                 "x": this.acceleration.x,
@@ -133,17 +125,20 @@ export class WelcomePage {
                 "heading": this.heading,
                 "speed": this.speed,
                 "timestamp": this.acceleration.timestamp,
-                "deviceOrientation": this.deviceOrientation
+                "deviceOrientation": this.deviceOrientation,
+                "intensity": currentAccl
                 });
                 this.file.play();
-                // this.nativeAudio.play('pothole-detected').then(function () {
-                //     console.log("Sound started successfully!");
-                //     //alert("Sound started successfully!");
-                // }, function (error) {
-                //     alert("Error in playing sound!" + error);
-                // });
             }
         });
+    }
+
+    calculateMagnitude(acceleration: any) {
+        if(acceleration == null) {
+            return 0;
+        }
+        return Math.sqrt((acceleration.x * acceleration.x
+            + acceleration.y * acceleration.y + acceleration.z * acceleration.z) / 2);
     }
 
     initializeDeviceOrientation() {

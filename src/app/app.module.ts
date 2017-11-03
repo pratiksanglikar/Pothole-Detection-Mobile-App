@@ -11,6 +11,7 @@ import {BrokerListPage} from '../pages/broker-list/broker-list';
 import {BrokerDetailPage} from '../pages/broker-detail/broker-detail';
 import {FavoriteListPage} from '../pages/favorite-list/favorite-list';
 import {AboutPage} from '../pages/about/about';
+import {HomePage} from "../pages/home/home";
 
 import {PropertyService} from "../providers/property-service-mock";
 import {BrokerService} from "../providers/broker-service-mock";
@@ -20,6 +21,8 @@ import {SplashScreen} from '@ionic-native/splash-screen';
 import {HyperTrack} from '@ionic-native/hyper-track';
 import {BackgroundGeolocation} from '@ionic-native/background-geolocation';
 import {Geolocation} from '@ionic-native/geolocation';
+import {NguiMapModule} from '@ngui/map';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
     declarations: [
@@ -30,12 +33,18 @@ import {Geolocation} from '@ionic-native/geolocation';
         PropertyDetailPage,
         FavoriteListPage,
         BrokerListPage,
-        BrokerDetailPage
+        BrokerDetailPage,
+        HomePage
     ],
     imports: [
         BrowserModule,
         IonicModule.forRoot(MyApp),
-        HttpModule
+        HttpModule,
+        NguiMapModule.forRoot({
+            apiUrl: 'https://maps.google.com/maps/api/js?libraries=visualization,places,drawing&key=AIzaSyCdPH2Kol4ekqjPlrpcYZo2Mb8I90z3r8o'
+        }),
+        FormsModule,
+        ReactiveFormsModule
     ],
     bootstrap: [IonicApp],
     entryComponents: [
@@ -46,7 +55,8 @@ import {Geolocation} from '@ionic-native/geolocation';
         PropertyDetailPage,
         FavoriteListPage,
         BrokerListPage,
-        BrokerDetailPage
+        BrokerDetailPage,
+        HomePage
     ],
     providers: [
         StatusBar,

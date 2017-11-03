@@ -24389,6 +24389,20 @@ ion-navbar.toolbar {
   color: white;
 }
 
+page-home #floating-panel {
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #999;
+  font-family: 'Roboto', 'sans-serif';
+  left: 25%;
+  line-height: 30px;
+  padding: 5px;
+  padding-left: 10px;
+  text-align: center;
+  top: 10px;
+  z-index: 5;
+}
+
 ion-note {
   color: #84BF41 !important;
   font-size: 1.4rem !important;

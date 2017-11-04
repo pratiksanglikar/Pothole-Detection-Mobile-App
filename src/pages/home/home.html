@@ -1,24 +1,4 @@
-<ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Map</ion-title>
-  </ion-navbar>
-</ion-header>
 
-<ion-content padding>
-  <h1>Heatmap Layer</h1>
-  <ngui-map zoom="13" center="37.782551, -122.445368">
-    <div id="floating-panel">
-      <button (click)="toggleHeatmap()">Toggle Heatmap</button>
-      <button (click)="changeGradient()">Change gradient</button>
-      <button (click)="changeRadius()">Change radius</button>
-      <button (click)="changeOpacity()">Change opacity</button>
-    </div>
+  <ngui-map zoom="16" [center]="center" style="height: 100%; width: 100%;">
     <heatmap-layer [data]="points"></heatmap-layer>
   </ngui-map>
-  <button (click)="loadRandomPoints()">Load Random Points</button>
-  <br/>
-  <button (click)="addPoint()">Add Point</button>
-</ion-content>

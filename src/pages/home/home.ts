@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnInit, ViewChild, SimpleChanges} from '@angular/core';
 import {HeatmapLayer} from '@ngui/map';
 
 @Component({
@@ -8,10 +8,15 @@ import {HeatmapLayer} from '@ngui/map';
 
 export class HomePage implements OnInit {
 
+    @Input("center") private center: string = "37.782551, -122.445368";
+    @Input("potholes") private potholes: any[] = [];
+
     @ViewChild(HeatmapLayer) heatmapLayer: HeatmapLayer;
     heatmap: google.maps.visualization.HeatmapLayer;
     map: google.maps.Map;
     points = [];
+
+    private initialized: boolean = false;
 
     ngOnInit() {
         this.heatmapLayer['initialized$'].subscribe(heatmap => {
@@ -23,13 +28,29 @@ export class HomePage implements OnInit {
             this.heatmap = heatmap;
             this.map = this.heatmap.getMap();
         });
+        this.initialized = true;
     }
 
-    toggleHeatmap() {
+    ngOnChanges(changes: SimpleChanges) {
+        if (this.initialized === true) {
+            this.center = changes.center ? changes.center.currentValue : this.center;
+            let points = [];
+            if (changes.potholes && changes.potholes.currentValue) {
+                for (let i = 0; i < changes.potholes.currentValue.length; i++) {
+                    points.push(new google.maps.LatLng(changes.potholes.currentValue[i].lat, changes.potholes.currentValue[i].lng));
+                }
+            }
+            console.log(this.potholes);
+            this.points = [...points];
+            google.maps.event.trigger(this.map, 'resize');
+        }
+    }
+
+    /*toggleHeatmap() {
         this.heatmap.setMap(this.heatmap.getMap() ? null : this.map);
-    }
+    }*/
 
-    changeGradient() {
+    /*changeGradient() {
         let gradient = [
             'rgba(0, 255, 255, 0)',
             'rgba(0, 255, 255, 1)',
@@ -47,13 +68,13 @@ export class HomePage implements OnInit {
             'rgba(255, 0, 0, 1)'
         ];
         this.heatmap.set('gradient', this.heatmap.get('gradient') ? null : gradient);
-    }
+    }*/
 
-    changeRadius() {
+    /*changeRadius() {
         this.heatmap.set('radius', this.heatmap.get('radius') ? null : 20);
-    }
+    }*/
 
-    changeOpacity() {
+    /*changeOpacity() {
         this.heatmap.set('opacity', this.heatmap.get('opacity') ? null : 0.2);
     }
 
@@ -63,14 +84,14 @@ export class HomePage implements OnInit {
         for (let i = 0 ; i < 9; i++) {
             this.addPoint();
         }
-    }
+    }*/
 
-    addPoint() {
+    /*addPoint() {
         let randomLat = Math.random() * 0.0099 + 37.782551;
         let randomLng = Math.random() * 0.0099 + -122.445368;
         let latlng = new google.maps.LatLng(randomLat, randomLng);
         this.points.push(latlng);
-    }
+    }*/
 
 
 }

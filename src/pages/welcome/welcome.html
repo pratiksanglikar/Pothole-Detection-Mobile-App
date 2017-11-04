@@ -7,44 +7,48 @@
 <ion-content no-bounce>
     <div class="main-div">
 
+        <page-home [center]="center" [potholes]="potholes"></page-home>
+
         <div class="start-button-div">
             <button (click)="startWatching()" [disabled]="startDisabled" class="start-button">
                 Start
             </button>
-        </div>
-        <div class="end-button-div">
             <button (click)="stopWatching()" [disabled]="stopDisabled" class="end-button">
                 Stop
             </button>
         </div>
-        <div class="show-data-view">
-            <div>
-                <h3>
-                    GPS data
-                </h3>
-                <div>Latitude: {{latitude}}</div>
-                <div>Longitude: {{longitude}}</div>
-                <div>Heading: {{heading}}</div>
-                <div>Speed: {{speed}}</div>
-            </div>
 
-            <div>
-                <h3>
-                    Device Motion Data
-                </h3>
-                <div>timestamp: {{acceleration.timestamp}}</div>
-                <div>x: {{acceleration.x}}</div>
-                <div>y: {{acceleration.y}}</div>
-                <div>z: {{acceleration.z}}</div>
-            </div>
 
-            <div>
-                <h3>
-                    Device Orientation
-                </h3>
-                <div>Device Orientation: {{deviceOrientationData}}</div>
-            </div>
-        </div>
+
+
+        <!--<div class="show-data-view">-->
+            <!--<div>-->
+                <!--<h3>-->
+                    <!--GPS data-->
+                <!--</h3>-->
+                <!--<div>Latitude: {{latitude}}</div>-->
+                <!--<div>Longitude: {{longitude}}</div>-->
+                <!--<div>Heading: {{heading}}</div>-->
+                <!--<div>Speed: {{speed}}</div>-->
+            <!--</div>-->
+
+            <!--<div>-->
+                <!--<h3>-->
+                    <!--Device Motion Data-->
+                <!--</h3>-->
+                <!--<div>timestamp: {{acceleration.timestamp}}</div>-->
+                <!--<div>x: {{acceleration.x}}</div>-->
+                <!--<div>y: {{acceleration.y}}</div>-->
+                <!--<div>z: {{acceleration.z}}</div>-->
+            <!--</div>-->
+
+            <!--<div>-->
+                <!--<h3>-->
+                    <!--Device Orientation-->
+                <!--</h3>-->
+                <!--<div>Device Orientation: {{deviceOrientationData}}</div>-->
+            <!--</div>-->
+        <!--</div>-->
     </div>
 
 </ion-content>

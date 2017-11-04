@@ -8,7 +8,6 @@ import {BrokerListPage} from '../pages/broker-list/broker-list';
 import {FavoriteListPage} from '../pages/favorite-list/favorite-list';
 import {WelcomePage} from '../pages/welcome/welcome';
 import {AboutPage} from '../pages/about/about';
-import {HomePage} from "../pages/home/home";
 
 export interface MenuItem {
     title: string;
@@ -22,7 +21,7 @@ export interface MenuItem {
 export class MyApp {
     @ViewChild(Nav) nav: Nav;
 
-    rootPage: any = HomePage;
+    rootPage: any = WelcomePage;
 
     appMenuItems: Array<MenuItem>;
 

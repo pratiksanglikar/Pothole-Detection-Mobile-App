@@ -4,9 +4,9 @@ import {BackgroundGeolocation} from "@ionic-native/background-geolocation";
 import {DeviceMotion, DeviceMotionAccelerationData} from '@ionic-native/device-motion';
 import {DeviceOrientation, DeviceOrientationCompassHeading} from '@ionic-native/device-orientation';
 import {Http} from '@angular/http';
-import { NativeAudio } from '@ionic-native/native-audio';
-import { Platform } from 'ionic-angular';
-import { Media, MediaObject } from '@ionic-native/media';
+import {NativeAudio} from '@ionic-native/native-audio';
+import {Platform} from 'ionic-angular';
+import {Media, MediaObject} from '@ionic-native/media';
 
 
 @Component({
@@ -32,11 +32,17 @@ export class WelcomePage {
     private startDisabled = false;
     private stopDisabled = true;
 
-    private url: string = "http://pothole.us-west-1.elasticbeanstalk.com/pushData";
+    private pushUrl: string = "http://pothole.us-west-1.elasticbeanstalk.com/pushData";
+    private pullUrl: string = "http://pothole.us-west-1.elasticbeanstalk.com/getPotholes";
 
     private deviceData: any[] = [];
 
     private file: MediaObject = null;
+
+    private updatePotholeInterval: any = null;
+
+    private center: string = "San Jose";
+    private potholes: any[] = [];
 
     constructor(private geolocation: Geolocation,
                 private zone: NgZone,
@@ -105,7 +111,7 @@ export class WelcomePage {
     initializeDeviceMotion() {
         this.deviceMotion.getCurrentAcceleration().then(
             (acceleration: DeviceMotionAccelerationData) => {
-                if(!this.initialAcceleration) {
+                if (!this.initialAcceleration) {
                     this.initialAcceleration = this.calculateMagnitude(this.acceleration);
                 }
                 this.acceleration = acceleration;
@@ -116,17 +122,17 @@ export class WelcomePage {
         this.motionWatcher = this.deviceMotion.watchAcceleration({frequency: 20}).subscribe((acceleration: DeviceMotionAccelerationData) => {
             this.acceleration = acceleration;
             let currentAccl = this.calculateMagnitude(this.acceleration);
-            if(Math.abs(currentAccl - this.initialAcceleration) > 3) {
-            this.deviceData.push({
-                "GPS": [this.longitude, this.latitude],
-                "x": this.acceleration.x,
-                "y": this.acceleration.y,
-                "z": this.acceleration.z,
-                "heading": this.heading,
-                "speed": this.speed,
-                "timestamp": this.acceleration.timestamp,
-                "deviceOrientation": this.deviceOrientation,
-                "intensity": currentAccl
+            if (Math.abs(currentAccl - this.initialAcceleration) > 3) {
+                this.deviceData.push({
+                    "GPS": [this.longitude, this.latitude],
+                    "x": this.acceleration.x,
+                    "y": this.acceleration.y,
+                    "z": this.acceleration.z,
+                    "heading": this.heading,
+                    "speed": this.speed,
+                    "timestamp": this.acceleration.timestamp,
+                    "deviceOrientation": this.deviceOrientation,
+                    "intensity": currentAccl
                 });
                 this.file.play();
             }
@@ -134,7 +140,7 @@ export class WelcomePage {
     }
 
     calculateMagnitude(acceleration: any) {
-        if(acceleration == null) {
+        if (acceleration == null) {
             return 0;
         }
         return Math.sqrt((acceleration.x * acceleration.x
@@ -173,12 +179,40 @@ export class WelcomePage {
         this.initializeDeviceMotion();
         this.initializeDeviceOrientation();
         this.startSending();
+        this.startPullingData();
     }
+
+    startPullingData() {
+        let dataToSend = {
+            longitude: 37.3412362,//Number(this.longitude),
+            latitude: -121.89884819999997,//Number(this.latitude),
+            radius: 2
+        };
+
+        this.updatePotholeInterval = setInterval(() => {
+            this.http.post(this.pullUrl, dataToSend).subscribe(res => {
+                let response = res.json();
+                let potholes = [];
+                this.center = "" + this.latitude + "," + this.longitude;
+                for(let i = 0; i < response.potholes.length; i++) {
+                    let pothole = {
+                        lat: response.potholes[i].GPS[1],
+                        lng: response.potholes[i].GPS[0]
+                    };
+                    potholes.push(pothole);
+                }
+                this.potholes = [...potholes];
+            }, err => {
+                alert(err.status);
+            });
+        }, 2000);
+    }
+
 
     startSending() {
         setInterval(() => {
             if (this.watching) {
-                this.http.post(this.url, this.deviceData).subscribe(res => {
+                this.http.post(this.pushUrl, this.deviceData).subscribe(res => {
                     console.log(JSON.stringify(res));
                     this.deviceData = [];
                 }, err => {
@@ -196,6 +230,9 @@ export class WelcomePage {
         this.locationWatcher.unsubscribe();
         this.motionWatcher.unsubscribe();
         this.orientationWatcher.unsubscribe();
+        if(this.updatePotholeInterval) {
+            clearInterval(this.updatePotholeInterval);
+        }
     }
 
     toggleDisabled() {

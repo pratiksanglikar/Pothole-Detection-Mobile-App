@@ -3,14 +3,14 @@ page-welcome {
   .start-button,
   .end-button {
     color: #ebebeb;
-    height: 10em;
-    width: 10em;
-    border: solid 2px #ebebeb;
-    border-radius: 5em;
+    height: 5em;
+    width: 5em;
+    border: solid 1px #ebebeb;
+    border-radius: 2.5em;
     font-face: "Arial Black";
     font-weight: bold;
     font-size: 1em;
-    margin: 2em;
+    margin: 1em;
   }
 
   .start-button {
@@ -23,8 +23,11 @@ page-welcome {
 
   .start-button-div,
   .end-button-div {
+    position: absolute;
+    top: 70%;
+    left: 40%;
     text-align: center;
-    background-color: #98FB98;
+    background-color: transparent;
   }
 
   .main-div {
